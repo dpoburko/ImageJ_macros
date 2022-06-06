@@ -1,5 +1,5 @@
 /* 
-Created by Damon Poburko, March 2011, Stanford University. dpoburko@stanford.edu
+Created by Damon Poburko, March 2011, Stanford University. dpoburko@sfu.ca
 This macro is meant to take in stacks of grey scale or composite images (2-3 channels) and align them using a Fourier-transform theorem. 
 Handles 8-bit, 16-bit & composite
 130404: DP - tweaked to align a stack with a moving reference
