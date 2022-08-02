@@ -1,5 +1,5 @@
 /* 
-Created by Damon Poburko, March 2011, Stanford University. dpoburko@sfu.ca
+Created by Damon Poburko, March 2011, Stanford University. dpoburko@stanford.edu
 This macro is meant to take in stacks of grey scale or composite images (2-3 channels) and align them using a Fourier-transform theorem. 
 Handles 8-bit, 16-bit & composite
 130404: DP - tweaked to align a stack with a moving reference
@@ -31,7 +31,7 @@ v4g -
 //macro "DTP_FFT_Aligner_batch_v4c" { 
 
 requires("1.46c");
- version = "5b";
+ version = "5c";
 
 w0 = 0;
 h0 = 0;
@@ -598,6 +598,11 @@ if (isOpen(dup0)) close(dup0);
 
 //add maximal offets to aligned image metadata
 md = getMetadata("Info");
+md = md + "\n"+"fftAligner_v"+version+" settings:";
+md = md + "\n"+"sub-region size: "+doSubRgn;
+md = md + "\n"+"maxTranslation: "+maxTranslation;
+md = md + "\n"+"dsFactor: "+dsFactor;
+
 md = md + "\n"+"Offsets:";
 md = md + "\n"+"minDx: "+minDx;
 md = md + "\n"+"maxDx: "+maxDx;

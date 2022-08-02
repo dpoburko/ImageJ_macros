@@ -32,7 +32,7 @@ Dialog.addMessage( "do this with 2 sequential runs of the macro.",14,"#474646");
 Dialog.setInsets(0, 30, 0);
 Dialog.addMessage("3. All dimensions will be offset by the aligned dimension,",14,"#474646");
 Dialog.setInsets(10, 0, 0);
-Dialog.addChoice("Re-order Hypestack... swap Slices & Frames in output", swapChoices,swapChoices[0]);
+Dialog.addChoice("Re-order Hypestack... swap Slices & Frames in output", swapChoices,call("ij.Prefs.get", "dialogDefaults.swapChoice",swapChoices[0]));
 Dialog.setInsets(0, 40, 0);
 Dialog.addMessage("If swapping Slices and Frames, align by final dimensions",12,"#b82421");
 Dialog.addMessage("Align by :");
@@ -44,7 +44,8 @@ Dialog.addCheckboxGroup(1,3,dimsLabels, dimsDone);
 Dialog.addNumber("[rc] set reference channel (base 1)", parseInt (call("ij.Prefs.get", "dialogDefaults.refChannel", 1)));
 Dialog.addNumber("[rs] set reference slice (base 1, -1 = serial)", parseInt (call("ij.Prefs.get", "dialogDefaults.refSlice", 1)));
 Dialog.addNumber("[rf] set reference frame (base 1, -1 = serial)", parseInt (call("ij.Prefs.get", "dialogDefaults.refFrame", 1)));
-Dialog.addChoice("[subRgn] align by subregion (smaller = faster)", subRgnArray);
+Dialog.addChoice("[subRgn] align by subregion (smaller = faster)", subRgnArray,call("ij.Prefs.get", "dialogDefaults.doSubRgn", subRgnArray[0]));
+
 Dialog.addCheckbox("[place] the subregion used for alignment",  call("ij.Prefs.get", "dialogDefaults.placeBox", false));
 Dialog.addNumber("[resample] image: smaller is faster, but less accurate: ", parseFloat(call("ij.Prefs.get", "dialogDefaults.dsFactor", 1.0)), 2, 6, "");
 Dialog.addNumber("[ftsz] font size of offset labels", parseInt (call("ij.Prefs.get", "dialogDefaults.fontSize", 18)));
@@ -60,13 +61,10 @@ Dialog.show();
 //----------------------------------------------------------------------------------------
 
 swapChoice = Dialog.getChoice();
+	call("ij.Prefs.set", "dialogDefaults.swapChoice",swapChoice);
 	if (swapChoice == swapChoices[0] ) doSwap = true; 
 for (i=0;i<nDims;i++) {
 	dimsDone[i] = Dialog.getCheckbox();
-//	slicesOrFramesChoice = Dialog.getChoice();
-//		call("ij.Prefs.set", "dialogDefaults.slicesOrFramesChoice",slicesOrFramesChoice);
-//		if (slicesOrFramesChoice == slicesOrFrames[0]) dimsDone[1] = 1;
-//		if (slicesOrFramesChoice == slicesOrFrames[1]) dimsDone[2] = 1;
 }
 refChannel = Dialog.getNumber;	
 	call("ij.Prefs.set", "dialogDefaults.refChannel",refChannel);
@@ -139,25 +137,27 @@ for (i=0;i<nFiles;i++) {
 	//run("TIFF Virtual Stack...", "open="+dir+fList[i]);
 	if (copyToLocal==true){
 		workingDir = getDirectory("home");
-		print("\\Update10: moving image to local drive.");
+		print("\\Update1:1. moving image to local drive.");
 		tm0= getTime();
 		ic = File.copy(dir+fList[i], workingDir+fList[i]);
 		
-		print("\\Update10: Copy of image moved in "+ d2s( (getTime()-tm0)/1000,2)+" s");
+		print("\\Update1:1. Copy of image moved in "+ d2s( (getTime()-tm0)/1000,2)+" s");
 		open(workingDir+fList[i]);
 		run("Out [-]");
 		run("Out [-]");
 	} else {
 		//opening virtual images doesn't seem to work work
 		//run("TIFF Virtual Stack...", "open="+workingDir+fList[i]);
+		tm0= getTime();
 		open(dir+fList[i]);
+		print("\\Update1:1. Opened image from source in "+ d2s( (getTime()-tm0)/1000,2)+" s");
 		run("Out [-]");
 		run("Out [-]");
 	}
 		
 	img0 = getTitle();
 	pctMemory = d2s(100*parseInt(IJ.currentMemory())/parseInt(IJ.maxMemory()),1);
-	print("\\Update8: Using "+ pctMemory + "% of available "+d2s(parseInt(IJ.maxMemory())/1E9,1)+ "GB of RAM.");
+	print("\\Update8:8. Using "+ pctMemory + "% of available "+d2s(parseInt(IJ.maxMemory())/1E9,1)+ "GB of RAM.");
 	Stack.getDimensions(width, height, channels, slices, frames);
 	if (nFramesRemoved>0) {
 		didSwap = false;
@@ -180,7 +180,7 @@ for (i=0;i<nFiles;i++) {
 	print("\\Update7:7. Stack.getDimensions("+width+", "+height+", "+channels+", "+slices+", "+frames+") refFrame:"+refFrame+" refSlice:"+refSlice);
 	dimensionsOK = true;
 	pctMemory = d2s(100*parseInt(IJ.currentMemory())/parseInt(IJ.maxMemory()),1);
-	print("\\Update8: Using "+ pctMemory + "% of available "+d2s(parseInt(IJ.maxMemory())/1E9,1)+ "GB of RAM.");
+	print("\\Update8:8. Using "+ pctMemory + "% of available "+d2s(parseInt(IJ.maxMemory())/1E9,1)+ "GB of RAM.");
 
 	rc = refChannel;
 
@@ -222,19 +222,20 @@ for (i=0;i<nFiles;i++) {
 
 					}	
 					saveAs("Tiff", savePathFull);
-					print("\\Update10:10. Saved image in "+ d2s( (getTime()-tm0)/1000,2)+" s");
+					print("\\Update10:10. Saved image in "+ d2s( (getTime()-tm0)/1000,2)+" s. Save to as "+savePathFull);
 					//ic = File.copy(savePath+File.separator+img1+".tif", savePath+File.separator+img1+".tif");
 				} else {
+					tm0= getTime();
 					img1 = getTitle();
 					print("\\Update10:10. Img1 is "+ img1+ " after fft. "+ni1+" images open before fft,"+ni2+" after");
 					if (indexOf(img1,".tif")!=-1) {
 						savePathFull =savePath+File.separator+img1;
 					} else {
 						savePathFull =savePath+File.separator+img1+".tif";
-						
 					}
-					
 					saveAs("Tiff", savePathFull);
+					print("\\Update10:10. Saved image in "+ d2s( (getTime()-tm0)/1000,2)+" s. Save to as "+savePathFull);
+
 				}
 		}
 	}
@@ -244,10 +245,10 @@ for (i=0;i<nFiles;i++) {
 	print("\\Update11:11. Batch processing time left: " +d2s(tLeft, 2) + " min for "+(nFiles-1-i)+ " image stacks");
 	pctMemory = d2s(100*parseInt(IJ.currentMemory())/parseInt(IJ.maxMemory()),1);
 	
-	print("\\Update8: Using "+ pctMemory + "% of available "+d2s(parseInt(IJ.maxMemory())/1E9,1)+ "GB of RAM.");
+	print("\\Update8:8. Using "+ pctMemory + "% of available "+d2s(parseInt(IJ.maxMemory())/1E9,1)+ "GB of RAM.");
 	close("*");
 	if (copyToLocal==true){
-		File.delete(workingDir+fList[i]);
+		fd = File.delete(workingDir+fList[i]);
 	}
 }
 
