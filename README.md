@@ -37,5 +37,8 @@ Results show line intensity values and r<sub>2</sup> correlation coefficients fo
 
 ![Example of output results](https://github.com/dpoburko/ImageJ_macros/blob/master/images/multiChannel_profiles_Example-Results66pct.png)
 
+## ND2_open_multisite_and_save_tif_v1b.ijm
+
+Using the Bioformats plugin to read in multi-position .ND2 from a Nikon microscope, this macro will batch process a folder of .ND2 and save the individual positions as .tiff stacks (multi-channel, Z-stacks if present). 
 
 
