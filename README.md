@@ -7,6 +7,13 @@ Almost all are written to work on 2D images or image stacks and hyperstacks.
 
 Feel free to contact us if you run into problems with these macros. dpoburko@sfu.ca
 
+## addFormFactorToResults_.ijm
+
+Does what it says. Add Form Factor of ROIs to the results table.
+
+```ff = pow( getResult("Perim.", j),2) / ( 4*PI*getResult("Area", j)  );```
+
+
 ## multiChannel_profiles.ijm
 
 This macro quickly plots a line profile on the current frame and slice of a mulichannel image (update 5 channels currenty)
@@ -30,6 +37,5 @@ Results show line intensity values and r<sub>2</sup> correlation coefficients fo
 
 ![Example of output results](https://github.com/dpoburko/ImageJ_macros/blob/master/images/multiChannel_profiles_Example-Results66pct.png)
 
-## addFormFactorToResults_.ijm
 
-Does what it says. The Aspect Ratio of cells is added to the results table.
+
