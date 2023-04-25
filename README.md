@@ -6,3 +6,5 @@ This repository holds a collection of macros that our lab has written for ImageJ
 Almost all are written to work on 2D images or image stacks and hyperstacks. 
 
 Feel free to contact us if you run into problems with these macros. dpoburko@sfu.ca
+
+multiChannel_profiles.ijm 
