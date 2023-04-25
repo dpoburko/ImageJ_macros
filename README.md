@@ -28,4 +28,4 @@ The user dialog allow setting the output graph size, running background subtract
 
 Results show line intensity values and r<sub>2</sup> correlation coefficients for the profile of each channel pair
 
-![Example of output results] (https://github.com/dpoburko/ImageJ_macros/blob/master/images/multiChannel_profiles_Example-Results66pct.png)
+![Example of output results](https://github.com/dpoburko/ImageJ_macros/blob/master/images/multiChannel_profiles_Example-Results66pct.png)
