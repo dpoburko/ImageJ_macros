@@ -1,5 +1,5 @@
 # ImageJ_macros
-A Usefull macros for ImageJ (Fiji)
+Usefull macros for ImageJ (Fiji) for a variety of jobs.
 
 This repository holds a collection of macros that our lab has written for ImageJ to facility daily Image analysis tasks. The degree of documentation for each macro varies. Most will have explanatory notes in the initial comments of the code. 
 
@@ -13,6 +13,11 @@ Does what it says. Add Form Factor of ROIs to the results table.
 
 ```ff = pow( getResult("Perim.", j),2) / ( 4*PI*getResult("Area", j)  );```
 
+## findNearestROIs_v2.ijm
+
+This macro uses a brute force approach to determine the distance between ImageJ ROIs. 
+Upto ~1000 ROIs, this is pretty quick, comparable to using [R's nn2](https://www.rdocumentation.org/packages/RANN/versions/2.6.1/topics/nn2) k-tree based nearest neighbour search.
+ 
 
 ## multiChannel_profiles.ijm
 
@@ -39,6 +44,6 @@ Results show line intensity values and r<sub>2</sup> correlation coefficients fo
 
 ## ND2_open_multisite_and_save_tif_v1b.ijm
 
-Using the Bioformats plugin to read in multi-position .ND2 from a Nikon microscope, this macro will batch process a folder of .ND2 and save the individual positions as .tiff stacks (multi-channel, Z-stacks if present). 
+Using the [Bioformats plugin](https://imagej.net/formats/bio-formats) to read in multi-position .ND2 from a Nikon microscope, this macro will batch process a folder of .ND2 and save the individual positions as .tiff stacks (multi-channel, Z-stacks if present). 
 
 
