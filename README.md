@@ -11,4 +11,13 @@ Feel free to contact us if you run into problems with these macros. dpoburko@sfu
 
 This macro quickly plots a line profile on the current frame and slice of a mulichannel image (update 5 channels currenty)
 
+![Multi-channel image of a cell labelled for its membrane, nucelus and phagocytosed cells with a line drawn across it ](https://github.com/dpoburko/ImageJ_macros/blob/master/images/multiChannel_profiles_Example-1.png)
 
+
+The line profile can be drawn with intensity values normalized between 0 -1 for each channel: 
+![Resulting line profile where each channel is shown normalized from min to max as 0 to 1](https://github.com/dpoburko/ImageJ_macros/blob/master/images/multiChannel_profiles_Example-plot_norm.png)
+
+Or the line profile can be drawn with raw intensity values : 
+![Resulting line profiled with raw values](https://github.com/dpoburko/ImageJ_macros/blob/master/images/multiChannel_profiles_Example-plot_norm.png)
+
+The user dialog allow setting the output graph size, running background subtraction before measuring profiles and selecting which channels to plot and what color to plot them as. 
