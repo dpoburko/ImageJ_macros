@@ -222,6 +222,7 @@ for (dd=0;dd<dirArray.length;dd++) {
 				tempImg = baseName+"_C"+roiAChannel;
 				if (channels >1) { 
 					run("Duplicate...", "title="+tempImg+" duplicate channels="+roiAChannel);
+					rename(tempImg); //
 					selectWindow(tempImg);
 				}	
 
