@@ -1,6 +1,8 @@
 # ImageJ_macros
-Usefull macros for ImageJ (Fiji)
+A Usefull macros for ImageJ (Fiji)
 
-This repository holds a variety of macros written by our lab for ImageJ to facility daily Image analysis tasks. The degree of documentation for each macro varies. 
+This repository holds a collection of macros that our lab has written for ImageJ to facility daily Image analysis tasks. The degree of documentation for each macro varies. Most will have explanatory notes in the initial comments of the code. 
 
-Feel free to contact us if you run into problems with these macros. 
+Almost all are written to work on 2D images or image stacks and hyperstacks. 
+
+Feel free to contact us if you run into problems with these macros. dpoburko@sfu.ca
