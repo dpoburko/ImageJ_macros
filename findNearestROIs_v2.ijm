@@ -83,12 +83,12 @@ for (j = 0;j<xList.length;j++) {
 				}
 				roiManager("deselect");
 			}
-			setResult("NN"+i+" dist",j,distances[sortedNNIndex[i]]);
-			if (dMethod == dMethChoices[1]) setResult("NN"+i+" distBwPerimeters",j,d2p);
+			setResult("NN"+i+"_dist",j,distances[sortedNNIndex[i]]);
+			if (dMethod == dMethChoices[1]) setResult("NN"+i+"_distBwPerimeters",j,d2p);
 		}
 		for (i=1;i<=nNN;i++){
 			residual = means[j]-means[sortedNNIndex[i]];
-			setResult("NN"+i+" residual",j,residual);
+			setResult("NN"+i+"_residual",j,residual);
 		}
 		for (i=1;i<=nNN;i++){
 			setResult("angle"+i+"angle2NN",j,angles[sortedNNIndex[i]]);
