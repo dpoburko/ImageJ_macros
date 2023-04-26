@@ -15,9 +15,15 @@ Does what it says. Add Form Factor of ROIs to the results table.
 
 ## findNearestROIs_v2.ijm
 
-This macro uses a brute force approach to determine the distance between ImageJ ROIs. 
+This macro uses a brute force approach to determine the nearest neighbour distance between ImageJ ROIs. 
 Upto ~1000 ROIs, this is pretty quick, comparable to using [R's nn2](https://www.rdocumentation.org/packages/RANN/versions/2.6.1/topics/nn2) k-tree based nearest neighbour search.
+
+![multi-panel figure shows find Nearest ROIs dialog, labelled image and results table](https://github.com/dpoburko/ImageJ_macros/blob/master/images/findNearestROIs_v2_composite.png)
  
+## FFT_Aligner_v5d.ijm & FFT_Aligner_v5d_batchInterface.ijm
+
+The FFT_Aligner uses the principle of Fourier Transform and cross-correlation to determine the optimil rigid translation to align a stack of images across color channels, slices or frames. It is similiar in function to Guil [Fast4DReg](https://github.com/guijacquemet/Fast4DReg). Fast4DReg typically runs slightly faster than FFT_Aligner and can be installed using the Fiji updating system. FFT_Aligner handles some stacks slightly more faithfully in our hands and uses ImageJ's native Fourier Math functions. 
+
 
 ## multiChannel_profiles.ijm
 
