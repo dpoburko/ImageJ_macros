@@ -13,6 +13,12 @@ Does what it says. Add Form Factor of ROIs to the results table.
 
 ```ff = pow( getResult("Perim.", j),2) / ( 4*PI*getResult("Area", j)  );```
 
+## assignROIsToLargerROIs_batch_v1b.ijm
+
+This macro asks the user to provide parts of ROI set file names that are unique to small and large ROIs. It will try to match ROIs to a series of images assuming that images have a name like image1.tif, image2.tif (etc.) and ROI files are named as image1_A.zip, image2_A.zip... and image1_B.zip, image2_B.zip..
+
+The set of "smaller" ROIs (e.g. mitochondria or nuclei) for each image in the working folder will be assigned to "larger" ROIs (e.g. cell membrane). ROIs that are outside of any larger ROI are abandoned.  
+
 ## findNearestROIs_v2.ijm
 
 This macro uses a brute force approach to determine the nearest neighbour distance between ImageJ ROIs. 
