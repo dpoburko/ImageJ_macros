@@ -52,9 +52,22 @@ A very similar user dialog will prompt you to select a folder of images to analy
 
 ![User dialog box, summary of execution time, and summary of accuracy of the macro](https://github.com/dpoburko/ImageJ_macros/blob/master/images/fftAligner_composite.png)
 
+## IncuCyte Helper Macro:
+We have created a series of macros to help with turning exported IncuCyte images into multi-channel stacks. 
+
+Details coming soon...
+
+### IncuCyte_0_listWellsAndPositions_v2c.ijm
+
+### IncuCyte_1_imgsToStacks_1f.ijm
+
+### IncuCyte_labelSlicesWithTime.ijm
+
 ## multiChannel_profiles.ijm
 
-This macro quickly plots a line profile on the current frame and slice of a mulichannel image (update 5 channels currenty). The line profile can be plotted with  raw intensity values or intensity values normalized between 0 -1 for each channel. Results show line intensity values and r<sup>2</sup> correlation coefficients for the profile of each channel pair.
+This macro quickly plots a line profile on the current frame and slice of a mulichannel image (update 5 channels currenty). The line profile can be plotted with  raw intensity values or intensity values normalized between 0 -1 for each channel. 
+
+**Results:** show line intensity values and r<sup>2</sup> correlation coefficients for the profile of each channel pair.
 
 ![Multi-channel image of a cell labelled for its membrane, nucelus and phagocytosed cells with a line drawn across it. Plots of raw and normalized intensity profiles are shown with an example of the results available in the Results table](https://github.com/dpoburko/ImageJ_macros/blob/master/images/multiChannel_profiles_Example-img%26plots%26results.png)
 
