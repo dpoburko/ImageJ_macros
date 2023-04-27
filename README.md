@@ -20,7 +20,7 @@ Upto ~1000 ROIs, this is pretty quick, comparable to using [R's nn2](https://www
 
 ### Usage:
 1. Select the number of nearest neighbours to be calculated for each ROI.
-2. Select whether distances are calculated from the center of ROIs or betweeen the perimeter of ROIs. The later can be really useful for objects like cell nuclei.
+2. Select whether distances are calculated from the center of ROIs or betweeen the perimeter of ROIs. The later can be really useful for objects like cell nuclei. Both measures will be shown in the results, but distance ranking uses one of the other.
 
 ![multi-panel figure shows find Nearest ROIs dialog, labelled image and results table](https://github.com/dpoburko/ImageJ_macros/blob/master/images/findNearestROIs_v2_composite.png)
  
