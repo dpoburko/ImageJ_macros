@@ -31,7 +31,7 @@ The FFT_Aligner uses the principle of Fourier Transform and cross-correlation to
 ### Example: HeLa cells expressing H2B-RFP imaged at 10x on a IncuCyte microscope system over 50 hours.
 ![HeLa cells expressing H2B-RFP. Left is the raw movie. Right is aligned](https://github.com/dpoburko/ImageJ_macros/blob/master/images/DPC181_A3_1_crop_byFrame%2BfftAligned.gif)
 
-### Usage & Performance:
+### Usage:
 A simple user interface for an open image allows the user to select:
 1. determine whethe the stack will be alinged by color, slice (Z), or frame (t). 
 2. The reference image (speficic or image-by-image)
@@ -43,13 +43,18 @@ A simple user interface for an open image allows the user to select:
 8. Cropping the image to the minimum size with no blank borders
 9. Whether or not to plot the x & y offset
 
+### Performance:
 Accuracy tends to be comparable with FAST4DReg in our hands. Some images register better with FAST4DReg, others align better with FFT Aligner. FAST4DReg is however just about always faster. This is likely related to FFT Aligner using ImageJ's native FFT math. 
+
+### Batch Processing:
+Run FFT_Aligner_v5d_batchInterface.ijm with FFT_Aligner_v5d.ijm saved in the same folder
+A very similar user dialog will prompt you to select a folder of images to analyze.
 
 ![User dialog box, summary of execution time, and summary of accuracy of the macro](https://github.com/dpoburko/ImageJ_macros/blob/master/images/fftAligner_composite.png)
 
 ## multiChannel_profiles.ijm
 
-This macro quickly plots a line profile on the current frame and slice of a mulichannel image (update 5 channels currenty). The line profile can be drawn with  raw intensity values or intensity values normalized between 0 -1 for each channel. Results show line intensity values and r<sup>2</sup> correlation coefficients for the profile of each channel pair.
+This macro quickly plots a line profile on the current frame and slice of a mulichannel image (update 5 channels currenty). The line profile can be plotted with  raw intensity values or intensity values normalized between 0 -1 for each channel. Results show line intensity values and r<sup>2</sup> correlation coefficients for the profile of each channel pair.
 
 ![Multi-channel image of a cell labelled for its membrane, nucelus and phagocytosed cells with a line drawn across it. Plots of raw and normalized intensity profiles are shown with an example of the results available in the Results table](https://github.com/dpoburko/ImageJ_macros/blob/master/images/multiChannel_profiles_Example-img%26plots%26results.png)
 
