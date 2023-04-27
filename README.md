@@ -19,7 +19,7 @@ This macro uses a brute force approach to determine the nearest neighbour distan
 Upto ~1000 ROIs, this is pretty quick, comparable to using [R's nn2](https://www.rdocumentation.org/packages/RANN/versions/2.6.1/topics/nn2) k-tree based nearest neighbour search.
 
 ### Usage:
-1. Select the number of nearest neighbours to be calculated. 
+1. Select the number of nearest neighbours to be calculated for each ROI.
 2. Select whether distances are calculated from the center of ROIs or betweeen the perimeter of ROIs. The later can be really useful for objects like cell nuclei.
 
 ![multi-panel figure shows find Nearest ROIs dialog, labelled image and results table](https://github.com/dpoburko/ImageJ_macros/blob/master/images/findNearestROIs_v2_composite.png)
