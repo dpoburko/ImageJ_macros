@@ -103,7 +103,12 @@ The user dialog allow setting the output graph size, running background subtract
 Using the [Bioformats plugin](https://imagej.net/formats/bio-formats) to read in multi-position .ND2 from a Nikon microscope, this macro will batch process a folder of .ND2 and save the individual positions as .tiff stacks (multi-channel, Z-stacks if present). 
 
 ## plotMultipleZaxisProfiles_v1.ijm
-
-![time or z stack with 5 regions of interest](https://github.com/dpoburko/ImageJ_macros/blob/master/images/plotMultipleZaxisProfiles_v1.ijm_image2%2BROIs.png)
+This macros needs a Z-stack or time series with ROIs in the ROI manager. 
+The user can choose:
+1. Color palettes for the resulting plot of each ROI's intensity
+2. Background color of the plot
+3. Line thickness to be plotted
+4. To plot raw values or values normalized to the min and max of each ROI.
+![User Dialog box, time or z stack with 5 regions of interest, resulting plot](https://github.com/dpoburko/ImageJ_macros/blob/master/images/plotMultipleZaxisProfiles_v1.ijm_triple.png)
 
 
