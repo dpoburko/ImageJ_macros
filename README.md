@@ -85,7 +85,6 @@ We have created a series of macros to help with turning exported IncuCyte images
  ROI.zip files that have a single real ROI can also contain a dummy ROI to allow the common .zip file type to be used, where dummy ROIs are recognized and ignored based on a name or small size
  Rolling ball substraction can be executed during measurement
  
-
 ## multiChannel_profiles.ijm
 
 This macro quickly plots a line profile on the current frame and slice of a mulichannel image (update 5 channels currenty). The line profile can be plotted with  raw intensity values or intensity values normalized between 0 -1 for each channel. 
@@ -99,9 +98,12 @@ The user dialog allow setting the output graph size, running background subtract
 ![User dialog for multiChannel_profiles.ijm](https://github.com/dpoburko/ImageJ_macros/blob/master/images/multiChannel_profiles_Example-dialog.png)
 
 
-
 ## ND2_open_multisite_and_save_tif_v1b.ijm
 
 Using the [Bioformats plugin](https://imagej.net/formats/bio-formats) to read in multi-position .ND2 from a Nikon microscope, this macro will batch process a folder of .ND2 and save the individual positions as .tiff stacks (multi-channel, Z-stacks if present). 
+
+## plotMultipleZaxisProfiles_v1.ijm
+
+![time or z stack with 5 regions of interest](https://github.com/dpoburko/ImageJ_macros/blob/master/images/plotMultipleZaxisProfiles_v1.ijm_image2%2BROIs.png)
 
 
