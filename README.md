@@ -111,6 +111,16 @@ The user can choose:
 4. To plot raw values or values normalized to the min and max of each ROI.
 ![User Dialog box, time or z stack with 5 regions of interest, resulting plot](https://github.com/dpoburko/ImageJ_macros/blob/master/images/plotMultipleZaxisProfiles_v1.ijm_triple.png)
 
+## renameFiles.ijm
+While ImageJ might seem like an odd environment to batch process file names, that can be extremely usedful when preparing images and roi files for batch processing. 
+1. 'Old string' is replaced with 'New string' in a selected folders, with the option to recursively replace in subfolders too.
+2. adding ~ symbols before or after your old string will replace flanking wildcards
+3. adding # at the end of New string will add a padded sequence of numbers with a user-defined start index from alphabetically sorted file names
+4. User can specify whether to modify all files or only a specific type (currently .tif, .tiff, .zip., .csv,.nd2,.jpg, .doc, .docx)
+5. The user can opt to include the file extension in the name changes (e.g. output.log → results.txt)
+
+![User Dialog Box for rename files macro](https://github.com/dpoburko/ImageJ_macros/blob/master/images/renameFiles.png)
+
 ## stardist_on_folder_v1m.ijm
 This macro allows the user to run stardist (https://github.com/stardist/stardist) on folder of multi-channel images, with the user dialog largely replicating the layout of the standard stardist user interface
 The user can specify the channel that is analyzed
