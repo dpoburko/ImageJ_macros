@@ -111,4 +111,11 @@ The user can choose:
 4. To plot raw values or values normalized to the min and max of each ROI.
 ![User Dialog box, time or z stack with 5 regions of interest, resulting plot](https://github.com/dpoburko/ImageJ_macros/blob/master/images/plotMultipleZaxisProfiles_v1.ijm_triple.png)
 
+## stardist_on_folder_v1m.ijm
+This macro allows the user to run stardist (https://github.com/stardist/stardist) on folder of multi-channel images, with the user dialog largely replicating the layout of the standard stardist user interface
+The user can specify the channel that is analyzed
+Users can use the versatile_fluorescent_nuclei model or specify their own model by indicating the folder where it is located.
+A .csv file can be saved with basic metrics determined for the new stardist ROIs along with intensity information for all other channels in the images.
+Time series are automatically supported.
 
+![User dialog box for startdist on folder](https://github.com/dpoburko/ImageJ_macros/blob/master/images/stardist_on_folder_UI.png)
