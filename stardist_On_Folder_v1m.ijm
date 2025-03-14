@@ -18,6 +18,7 @@ v1i - add file picker to select a custom model for segmentation
 v1j - tried saving ROIS as overlays and it got ugly
 vlk - started to think that ROI saving was slow. Noted this to Wayne Rasband. He correctly identified that there most be duplicate ROI names
     - all ROIs now named as "SD"+roiManagerIndex to ensure no repeat naming 
+v1m - option to log performance metrics. i.e. to compare different machines.
 */
 
 version = "1l";
@@ -195,19 +196,7 @@ removeOverlaps = Dialog.getCheckbox();
 	call("ij.Prefs.get", "dialogDefaults.removeOverlaps", removeOverlaps);
 	
 nROIs = roiManager("count");
-for (i = 1; i <= nROIs; i++) {
-    roiManager("select", nROIs-i);
-	getStatistics(area, mean, min, max);
-	if (max>0) {
-		roiManager("delete");
-	} else {
-		run("Add...", "value=1");    	
-	}
-	showProgress(i, nROIs);
-}
-	
-	
-	
+
 
 //shorten fList to images
 fList2 = newArray();
@@ -562,7 +551,7 @@ print("\\Update6: StarDist analysis complete at ~ " +d2s(tpf,3) +" min/frame");
 
 function fTypeCheck (file) {
 	fTypeOK = false;
-	fTypes = newArray(".tif",".tiff",".jpg",".png",".bmp");
+	fTypes = newArray(".tif",".tiff",".jpg",".png",".bmp",".nd2");
 	for (j=0;j<fTypes.length;j++) {
 		if (endsWith(file,fTypes[j])==true) {
 			fTypeOK = true;
