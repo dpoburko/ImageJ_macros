@@ -109,6 +109,6 @@ The user can choose:
 2. Background color of the plot
 3. Line thickness to be plotted
 4. To plot raw values or values normalized to the min and max of each ROI.
-![User Dialog box, time or z stack with 5 regions of interest, resulting plot]([https://github.com/dpoburko/ImageJ_macros/blob/master/images/plotMultipleZaxisProfiles_v1.ijm_image2%2BROIs.png](https://github.com/dpoburko/ImageJ_macros/blob/master/images/plotMultipleZaxisProfiles_v1.ijm_triple.png))
+![User Dialog box, time or z stack with 5 regions of interest, resulting plot](https://github.com/dpoburko/ImageJ_macros/blob/master/images/plotMultipleZaxisProfiles_v1.ijm_triple.png)
 
 
